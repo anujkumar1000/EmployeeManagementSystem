@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: empmgmt-api
+  r2dbc:
+    protocol: r2dbc
+    url: ${EM_R2DBC_URL:r2dbc:mysql://127.0.0.1:3306/leadsquared}
+    username: ${EM_R2DBC_USERNAME:root}
+    password: ${EM_R2DBC_PASSWORD:rootpass}
+  flyway:
+    enabled: false
+    locations: classpath:db/migration
+    driver: com.mysql.cj.jdbc.Driver
+    url: ${EM_FW_JDBC_URL:jdbc:mysql://127.0.0.1:3306/leadsquared}
+    user: ${EM_FW_JDBC_USERNAME:root}
+    password: ${EM_FW_JDBC_PASSWORD:rootpass}
+    schemas: ${EM_FW_SCHEMAS:leadsquared}
+  jooq:
+    sql-dialect: mysql
+  webflux:
+    base-path: /api
+    problemdetails:
+      enabled: true
+  jackson:
+    mapper:
+      ACCEPT_CASE_INSENSITIVE_ENUMS: true
+    serializationInclusion: ALWAYS
+  codec:
+    log-request-details: true
+    max-in-memory-size: 10MB
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+server:
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json,application/problem+json,application/xml
+  error:
+    include-message: always
+  shutdown: graceful
