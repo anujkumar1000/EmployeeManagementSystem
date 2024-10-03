@@ -1,0 +1,31 @@
+/* .dashboard { */
+    /* background-image: url('../dashboard/background.png'); Image ka path */
+    /* background-size: cover; */
+    /* background-position: center; */
+    /* height: 100vh; Full height */
+    /* padding: 20px; Padding for the container */
+/* } */
+
+
+.dashboard {
+    position: relative;
+    height: 100vh; /* Full height */
+    overflow: hidden; /* Hide overflow */
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* Video behind other content */
+    transform: translate(-50%, -50%); /* Center the video */
+}
+
+.container {
+    position: relative;
+    z-index: 1; /* Content above video */
+}
